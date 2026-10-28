@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/Projeto_Microsservicos_IntelliJ.iml" filepath="$PROJECT_DIR$/.idea/Projeto_Microsservicos_IntelliJ.iml" />
+      <module fileurl="file://$PROJECT_DIR$/entregas-service/entregas-service.iml" filepath="$PROJECT_DIR$/entregas-service/entregas-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pedidos-service/pedidos-service.iml" filepath="$PROJECT_DIR$/pedidos-service/pedidos-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/produtos-service/produtos-service.iml" filepath="$PROJECT_DIR$/produtos-service/produtos-service.iml" />
+    </modules>
+  </component>
+</project>

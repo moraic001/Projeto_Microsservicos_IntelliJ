@@ -1,0 +1,70 @@
+### 1. Criar um pedido em Pedidos primeiro (esperado 201)
+POST http://localhost:8082/pedidos
+Content-Type: text/plain
+
+1
+
+### 2. Criar entrega para pedido existente (esperado 201)
+POST http://localhost:8083/entregas
+Content-Type: text/plain
+
+1
+
+### 3. Consultar entrega criada (ajuste o ID, esperado 200)
+GET http://localhost:8083/entregas/1
+
+### 4. Entrada inválida (esperado 400)
+POST http://localhost:8083/entregas
+Content-Type: text/plain
+
+abc
+
+### 5. ID zero (esperado 400)
+POST http://localhost:8083/entregas
+Content-Type: text/plain
+
+0
+
+### 6. Pedido inexistente (esperado 422; não grava entrega)
+POST http://localhost:8083/entregas
+Content-Type: text/plain
+
+999
+
+### 7. Entrega inexistente (esperado 404)
+GET http://localhost:8083/entregas/999
+
+### 8. ID de entrega inválido (esperado 400)
+GET http://localhost:8083/entregas/abc
+
+### 9. Método incorreto em /entregas (esperado 405 e Allow: POST)
+GET http://localhost:8083/entregas
+
+### 10. Método incorreto em /entregas/{id} (esperado 405 e Allow: GET)
+POST http://localhost:8083/entregas/1
+Content-Type: text/plain
+
+1
+
+### 11. Rota desconhecida (esperado 404)
+GET http://localhost:8083/desconhecida
+
+### 12. Falha de rede (parar Pedidos antes; esperado 503)
+POST http://localhost:8083/entregas
+Content-Type: text/plain
+
+1
+
+### 13. Consulta local com Pedidos parado (esperado 200 para entrega previamente criada)
+GET http://localhost:8083/entregas/1
+
+### 14. Produtos parado, mas Pedidos ativo (esperado 201 para pedido já existente)
+# Pare Produtos, mantenha Pedidos ativo e crie entrega para um pedido previamente salvo.
+POST http://localhost:8083/entregas
+Content-Type: text/plain
+
+1
+
+### 15. Perda dos registros em memória
+# Reinicie somente Entregas e consulte a entrega antiga (esperado 404).
+GET http://localhost:8083/entregas/1

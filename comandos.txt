@@ -1,0 +1,18 @@
+Criar pedido: 
+Invoke-RestMethod `
+  -Uri "http://localhost:8082/pedidos" `
+  -Method POST `
+  -ContentType "text/plain" `
+  -Body "1"
+
+Consultar Pedido:
+Invoke-RestMethod `
+  -Uri "http://localhost:8082/pedidos/1" `
+  -Method GET
+
+criar entrega:
+Invoke-RestMethod `
+  -Uri "http://localhost:8083/entregas" `
+  -Method POST `
+  -ContentType "text/plain" `
+  -Body "1"
