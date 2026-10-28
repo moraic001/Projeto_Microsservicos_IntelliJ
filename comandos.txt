@@ -16,3 +16,5 @@ Invoke-RestMethod `
   -Method POST `
   -ContentType "text/plain" `
   -Body "1"
+
+  Comandos via Shell***
